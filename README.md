@@ -1,27 +1,71 @@
-# AngularMsalIntegration
+# Angular MSAL Integration
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+This project demonstrates how to integrate Microsoft Authentication Library (MSAL) with an Angular application for Azure AD authentication and secure API access. 
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Prerequisites](#prerequisites)
+- [MSAL Configuration](#msal-configuration)
+- [Setting Up MSAL in Your Angular Application](#setting-up-msal-in-your-angular-application)
+- [Running the Application](#running-the-application)
+- [Code Scaffolding](#code-scaffolding)
+- [Build](#build)
+- [Running Unit Tests](#running-unit-tests)
+- [Running End-to-End Tests](#running-end-to-end-tests)
+- [Further Help](#further-help)
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Before you begin, ensure you have the following:
+
+- **Azure AD App Registration**: Register your application in Azure Active Directory (AD) to obtain your `clientId` and `tenantId`. You'll need these values for your MSAL configuration.
+
+## MSAL Configuration
+
+To set up MSAL in your Angular application, you will need to define the configuration settings. The configuration includes:
+
+- **Client ID**: The application (client) ID obtained from Azure AD.
+- **Authority**: The URL for Azure AD, which includes your tenant ID.
+- **Redirect URI**: The URL where Azure will redirect after authentication.
+- **Cache Settings**: Configure how the application stores authentication states.
+
+## Setting Up MSAL in Your Angular Application
+
+1. **Install MSAL Packages**: Begin by installing the necessary MSAL packages for Angular. This can typically be done using npm or yarn.
+
+2. **Create Configuration File**: Create a configuration file (e.g., `auth-config.ts`) where you will define the MSAL configuration settings. This includes setting up the `msalConfig`, `msalGuardConfig`, and `msalInterceptorConfig`.
+
+3. **Update App Module**: Import the MSAL module in your main application module (e.g., `app.module.ts`) and initialize it with your configuration. Ensure that you set up the MSAL guard and interceptor for managing authentication and securing API requests.
+
+4. **Protect Routes**: Use MSAL guards to protect your application routes. This ensures that only authenticated users can access certain parts of your application.
+
+5. **Implement Login and Logout**: Create methods for handling user login and logout within your components. These methods will use the MSAL service to manage authentication flows.
+
+6. **Secure API Calls**: Use the MSAL interceptor to automatically attach authentication tokens to your HTTP requests to protected resources, such as Microsoft Graph API.
+
+## Running the Application
+
+To run the application, use the Angular CLI command to start the development server. Once the server is running, navigate to the specified local URL in your web browser.
+
+## Code Scaffolding
+
+If you need to create additional components or services, you can use the Angular CLI commands to generate them. This will help maintain a clean project structure.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+When you're ready to deploy your application, you can build it using the Angular CLI command. The build artifacts will be stored in the `dist/` directory, ready for deployment.
 
-## Running unit tests
+## Running Unit Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can execute unit tests to ensure your components and services function as expected. This can help identify any issues in your code before deployment.
 
-## Running end-to-end tests
+## Running End-to-End Tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+For end-to-end testing, set up the necessary packages and run your tests to verify the overall functionality of your application.
 
-## Further help
+## Further Help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For additional help with the Angular CLI or to learn more about MSAL integration, refer to the following resources:
+
+- [Angular CLI Documentation](https://angular.io/cli)
+- [Microsoft Authentication Library (MSAL) Documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview)

@@ -1,7 +1,38 @@
-<div *ngIf="isLoggedIn">
-  <button (click)="logout()">Logout</button>
-</div>
-<div *ngIf="!isLoggedIn">
-  <button (click)="login()">Login</button>
+<div class="bg-img">
+  <div class="content">
+      <img src="../../../assets/Miracle-Logo-White.png" alt="Logo" width="180px">
+
+      <div class="field">
+          <span class="login_icons">
+              <!-- <mat-icon>assignment_ind</mat-icon> -->
+          </span>
+          <input type="text" placeholder="Username">
+      </div>
+
+      <div class="field space">
+          <span class="login_icons">
+              <!-- <mat-icon>lock_person</mat-icon> -->
+          </span>
+          <div class="password-wrapper">
+              <input type="password" placeholder="Password">
+              <div class="eye showHide">
+                  <button mat-icon-button matSuffix>
+                      <!-- <mat-icon>visibility</mat-icon> -->
+                  </button>
+              </div>
+          </div>
+      </div>
+
+      <div>
+          <button class="btnStyle" style="height: 48px; background-color: #00AAE7; color: white;width: 100%;
+          margin-top: 20px;" (click)="login()">
+              Login
+          </button>
+      </div>
+
+      <div>
+          <h6 style="margin-top: 39px; color: white;">© Miracle Software Systems, Inc.</h6>
+      </div>
+  </div>
 </div>
 <router-outlet></router-outlet>
